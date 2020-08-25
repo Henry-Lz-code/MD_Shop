@@ -74,10 +74,23 @@ WSGI_APPLICATION = 'MD_Shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'MD_Shop',              # 使用的数据库名,
+#         'USER':'henry',                 # 用户名
+#         'PASSWORD':'henry',             # 密码
+#         'HOST':'192.168.110.130',       # 数据库主机地址
+#         'PORT':'3306'                   # 端口
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': 'utils/dbs/db.cnf',
+        },
     }
 }
 
@@ -106,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
