@@ -8,7 +8,7 @@ def jinjia2_env(**options):
     env = Environment(**options)
     # 将static和url语法配置到变量中
     env.globals.update({
-        "static": staticfiles_storage,
+        "static": staticfiles_storage.url,
         "url": reverse
     })
     return env

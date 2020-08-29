@@ -17,7 +17,7 @@ class User(AbstractUser):
 
     email_active = models.BooleanField(default=False, verbose_name="邮箱是否活跃")
 
-    object = UserManger()
+    objects = UserManger()
     REQUIRED_FIELDS = ['mobile']
 
     class Meta:

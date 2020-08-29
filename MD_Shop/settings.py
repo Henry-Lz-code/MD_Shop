@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'verifications',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'middlewares.TestMiddle1',
+    # 'middlewares.TestMiddle2',
 ]
 
 ROOT_URLCONF = 'MD_Shop.urls'
@@ -69,7 +72,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             # 配置jinjia2环境
-            'environment': 'MD_Shop.utils.jinjia2_env.jinjia2_env',
+            'environment': "utils.jinjia2_env.jinjia2_env",
         },
     },
 ]
@@ -139,7 +142,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s'
+            'format': '[%(levelname)s]:[%(asctime)s]-%(module)s-%(lineno)d-%(message)s'
         },
         'simple': {
             # 'format': '[%(asctime)]s%(levelname)s %(module)s %(lineno)d %(message)s'
@@ -164,7 +167,8 @@ LOGGING = {
             'filename': os.path.join(BASE_DIR, "logs/md_shop.log"),  # 日志文件的位置
             'maxBytes': 300 * 1024 * 1024,
             'backupCount': 10,
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+            'encoding': 'utf-8'
         },
     },
     'loggers': {
@@ -221,5 +225,5 @@ STATIC_URL = '/static/'
 
 # 配置静态文件的位置
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "statics")
+    os.path.join(BASE_DIR, "static")
 ]
